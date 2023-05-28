@@ -136,7 +136,7 @@ def draw_next_fig(fig):
     next_rect = next_surf.get_rect()
     next_rect.topleft = (WINDOW_WIDTH - 150, 180)
     DISPLAY_SURF.blit(next_surf, next_rect)
-    draw_fig(fig, pixel_x=WINDOW_WIDTH, pixel_y=WINDOW_HEIGHT)
+    draw_fig(fig, pixel_x=WINDOW_WIDTH - 150, pixel_y=230)
 
 
 def draw_fig(fig, pixel_x=None, pixel_y=None):
@@ -155,8 +155,23 @@ def draw_info(points, level):
     """Отрисовка статистики"""
     points_surf = BASIC_FONT.render(f'Очки: {points}', True, TITLE_COLOR)
     points_rect = points_surf.get_rect()
-    points_rect.topleft = (WINDOW_WIDTH - 550, 180)
+    points_rect.topleft = (WINDOW_WIDTH - 580, 180)
     DISPLAY_SURF.blit(points_surf, points_rect)
+
+    level_surf = BASIC_FONT.render(f'Уровень: {level}', True, TXT_COLOR)
+    level_rect = level_surf.get_rect()
+    level_rect.topleft = (WINDOW_WIDTH - 580, 250)
+    DISPLAY_SURF.blit(level_surf, level_rect)
+
+    pause_surf = BASIC_FONT.render('Пауза: пробел', True, INFO_COLOR)
+    pause_rect = pause_surf.get_rect()
+    pause_rect.topleft = (WINDOW_WIDTH - 580, 420)
+    DISPLAY_SURF.blit(pause_surf, pause_rect)
+
+    esc_surf = BASIC_FONT.render('Выход: esc', True, INFO_COLOR)
+    esc_rect = pause_surf.get_rect()
+    esc_rect.topleft = (WINDOW_WIDTH - 580, 450)
+    DISPLAY_SURF.blit(esc_surf, esc_rect)
 
 
 def game_cup(cup):
